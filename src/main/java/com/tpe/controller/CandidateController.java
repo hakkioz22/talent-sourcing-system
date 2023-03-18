@@ -1,6 +1,7 @@
 package com.tpe.controller;
 
 import com.tpe.domain.Candidate;
+import com.tpe.domain.Interaction;
 import com.tpe.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,6 +64,12 @@ public class CandidateController {
     public ResponseEntity<String> deleteCandidate(@PathVariable Long id) {
         candidateService.deleteCandidate(id);
         return new ResponseEntity<>("Candidate with id " + id + " has been deleted.", HttpStatus.OK);
+    }
+
+    //Get all interactions for specific candidate
+    @GetMapping("{id}/interactions")
+    public List<Interaction> getCandidateInteractions(@PathVariable Long id){
+        return candidateService.findInteractionByCandidateId(id);
     }
 
 }

@@ -23,12 +23,6 @@ public class InteractionController {
     @Autowired
     private CandidateService candidateService;
 
-    //Get All Interactions
-    @GetMapping
-    public ResponseEntity<List<Interaction>> getAllInteractions(){
-        List<Interaction> allInteractions = interactionService.getAllInteractions();
-        return new ResponseEntity<>(allInteractions, HttpStatus.OK);
-    }
 
     //Get an Interaction by id
     @GetMapping("/{id}")
